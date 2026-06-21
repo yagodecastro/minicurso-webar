@@ -1,0 +1,35 @@
+{
+  "name": "minicurso-webar-nuxt",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.14.0",
+    "better-sqlite3": "^12.11.1",
+    "lucide-vue-next": "^1.0.0",
+    "nuxt": "^4.4.8",
+    "vue": "^3.5.35",
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.16.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.1",
+    "eslint": "^10.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.4",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.5"
+  }
+}

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin "@tailwindcss/typography";
+
+:root {
+  font-family:
+    'Outfit',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+}
+
+/* Estilo premium de scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100/50 dark:bg-slate-950/20;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* Ajustes no estilo das tags de código renderizadas pelo Nuxt Content */
+.prose {
+  --tw-prose-pre-bg: transparent !important;
+  --tw-prose-pre-code: inherit !important;
+}
+
+.prose pre {
+  @apply border border-slate-200 dark:border-slate-800/80;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  overflow-x: auto;
+  @apply shadow-lg dark:shadow-2xl dark:shadow-black/50;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  @apply bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-300;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+  font-weight: 500; /* Letras com peso médio para contornos nítidos */
+  font-variant-ligatures: none; /* Desativa ligaduras como <!-- virando setas */
+  font-feature-settings:
+    'liga' 0,
+    'clig' 0;
+}
+
