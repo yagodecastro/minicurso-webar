@@ -7,7 +7,12 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ['@vue/devtools-core', '@vue/devtools-kit'],
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'lucide-vue-next',
+        'mermaid',
+      ],
     },
   },
   devtools: { enabled: true },
@@ -34,6 +39,10 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  routeRules: {
+    '/': { prerender: true },
+    '/**': { prerender: true },
   },
   compatibilityDate: '2024-04-03',
 })
