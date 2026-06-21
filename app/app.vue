@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, provide } from 'vue'
 import { Sun, Moon, Menu, X, Home, Glasses } from 'lucide-vue-next'
 
 const route = useRoute()
@@ -7,6 +7,7 @@ const isMobileMenuOpen = ref(false)
 
 // Estado do tema
 const isDark = ref(true)
+provide('isDark', isDark)
 
 // Configurar o script que roda imediatamente no cliente para evitar flashes de transição de cores (SSR-safe)
 useHead({

@@ -72,3 +72,9 @@ body {
     'liga' 0,
     'clig' 0;
 }
+
+/* Customizações para os diagramas do Mermaid */
+.prose-mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
