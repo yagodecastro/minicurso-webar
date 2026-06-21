@@ -1,12 +1,12 @@
 # 🕶️ Portal do Minicurso de WebAR (Nuxt 3)
 
-Este repositório contém a aplicação e o conteúdo do **Minicurso de Realidade Aumentada na Web (WebAR)**. A plataforma foi projetada como um manual iterativo passo a passo para desenvolvedores aprenderem a criar experiências tridimensionais imersivas direto no navegador do celular utilizando tecnologias abertas como **A-Frame** e **AR.js**.
+Este repositório contém a aplicação e o conteúdo do **Minicurso de Realidade Aumentada na Web (WebAR)**. A plataforma foi projetada como um manual passo a passo para desenvolvedores aprenderem a criar aplicações tridimensionais direto no navegador do celular utilizando tecnologias abertas como **A-Frame** e **AR.js**.
 
 ---
 
 ## ⚡ Tecnologias Utilizadas
 
-O portal de aprendizado foi construído com ferramentas de última geração:
+O portal foi construído com as seguintes tecnologias:
 
 - **Framework Principal:** [Nuxt 3](https://nuxt.com/) (Vue 3, Vite, SSR).
 - **Motor de Conteúdo:** `@nuxt/content` v3 para autoria de aulas baseadas em arquivos Markdown enriquecidos.

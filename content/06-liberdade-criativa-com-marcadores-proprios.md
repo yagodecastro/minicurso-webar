@@ -12,7 +12,7 @@ Diferente dos humanos, o computador não entende a beleza ou o significado de um
 
 Se você usar uma imagem suave, como uma pintura em aquarela ou uma foto desfocada com cores muito parecidas, a câmera não encontrará quinas suficientes e o objeto virtual não aparecerá na tela de forma estável.
 
-#### **2. Três Regras de Ouro para Criar um Marcador Perfeito**
+#### **2. Três Diretrizes para Criar um Marcador Estável**
 
 Para garantir que seu marcador customizado seja lido de forma rápida e estável, sua imagem deve seguir estas diretrizes:
 

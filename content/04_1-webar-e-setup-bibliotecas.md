@@ -6,7 +6,7 @@
 
 ### **Conceitos Fundamentais**
 
-#### **1. O que é WebAR? (E por que ela é revolucionária?)**
+#### **1. O que é WebAR? (E quais são suas vantagens?)**
 
 Até pouco tempo atrás, para experimentar a Realidade Aumentada (RA) no celular, o usuário precisava seguir um caminho longo e chato:
 
@@ -14,7 +14,7 @@ Até pouco tempo atrás, para experimentar a Realidade Aumentada (RA) no celular
 Caminho Tradicional (Nativo):
 [Abrir Loja de Apps] ➔ [Pesquisar Aplicativo] ➔ [Baixar 100MB+] ➔ [Aceitar Permissões] ➔ [Usar a Câmera]
 
-Caminho WebAR (Revolucionário):
+Caminho WebAR (Direto):
 [Escanear QR Code] ➔ [Abrir no Navegador] ➔ [Pronto para Usar!]
 ```
 
@@ -23,7 +23,7 @@ A **WebAR (Web Augmented Reality)** quebra todas essas barreiras. Em vez de um a
 1. Escanear um QR Code impresso em um panfleto ou apontar a câmera para um link.
 2. O navegador se abre e carrega a experiência instantaneamente na web.
 
-Isso aumenta drasticamente a taxa de engajamento do público, sendo ideal para campanhas de marketing, portfólios, cartões de visita interativos e jogos rápidos.
+Isso simplifica o acesso do usuário, tornando a tecnologia útil para portfólios, cartões de visita interativos e protótipos rápidos.
 
 #### **2. O que são Bibliotecas JavaScript e CDNs?**
 

@@ -1,8 +1,8 @@
 # Minicurso de Realidade Aumentada na Web (WebAR)
 
-Bem-vindo(a) ao **Minicurso de Realidade Aumentada na Web (WebAR)**! Este portal foi desenvolvido para guiar você, passo a passo, no desenvolvimento de experiências interativas e imersivas em 3D utilizando apenas tecnologias web abertas.
+Bem-vindo(a) ao **Minicurso de Realidade Aumentada na Web (WebAR)**! Este portal foi desenvolvido para guiar você, passo a passo, no desenvolvimento de aplicações interativas em 3D utilizando apenas tecnologias web abertas.
 
-Aqui você aprenderá a construir portfólios de realidade aumentada de alto impacto que rodam direto no navegador do celular — sem precisar de downloads de lojas de aplicativos, usando apenas HTML, JavaScript e as bibliotecas **[A-Frame](https://aframe.io/)** e **[AR.js](https://ar-js-org.github.io/AR.js-Docs/)**.
+Aqui você aprenderá a construir projetos de realidade aumentada que rodam direto no navegador do celular — sem precisar de downloads de lojas de aplicativos, usando apenas HTML, JavaScript e as bibliotecas **[A-Frame](https://aframe.io/)** e **[AR.js](https://ar-js-org.github.io/AR.js-Docs/)**.
 
 ---
 

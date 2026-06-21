@@ -1,6 +1,6 @@
 # **Manual de Desenvolvimento: Realidade Aumentada na Web com A-Frame e AR.js**
 
-Bem-vindo(a) ao mundo da Realidade Aumentada na Web (WebAR)! Neste manual, você vai aprender a construir experiências imersivas usando apenas HTML, JavaScript e o navegador do seu celular. Esqueça instalações pesadas e lojas de aplicativos: aqui, a mágica acontece direto na web.
+Bem-vindo(a) ao desenvolvimento de Realidade Aumentada na Web (WebAR)! Neste manual, você vai aprender a construir aplicações usando apenas HTML, JavaScript e o navegador do seu celular. Esqueça instalações pesadas e lojas de aplicativos: o código é executado diretamente no navegador.
 
 **O que você vai precisar:**
 
@@ -12,7 +12,7 @@ Bem-vindo(a) ao mundo da Realidade Aumentada na Web (WebAR)! Neste manual, você
 
 Ao finalizar esta apostila, você terá construído e publicado um portfólio inicial de WebAR. Você saberá como:
 
-1. Configurar um ambiente profissional com VS Code e versionar código com Git.
+1. Configurar um ambiente de desenvolvimento com VS Code e versionar código com Git.
 2. Entender e estruturar páginas HTML.
 3. Configurar o ecossistema do [A-Frame](https://aframe.io/) e [AR.js](https://ar-js-org.github.io/AR.js-Docs/).
 4. Criar e treinar seus próprios marcadores visuais.
