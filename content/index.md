@@ -1,4 +1,4 @@
-# Minicurso de Realidade Aumentada na Web (WebAR) 🕶️
+# Minicurso de Realidade Aumentada na Web (WebAR)
 
 Bem-vindo(a) ao **Minicurso de Realidade Aumentada na Web (WebAR)**! Este portal foi desenvolvido para guiar você, passo a passo, no desenvolvimento de experiências interativas e imersivas em 3D utilizando apenas tecnologias web abertas.
 

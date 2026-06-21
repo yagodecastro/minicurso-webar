@@ -17,6 +17,20 @@ O **versionamento de código** serve para organizar isso. Em vez de criar cópia
 - **Git:** É o motor invisível. É o software instalado no seu computador que registra o histórico de alterações (repositório local). Você não precisa de internet para usá-lo.
 - **GitHub:** É o estacionamento na nuvem. É um site (serviço online) onde você guarda os códigos que estão sendo monitorados pelo Git na sua máquina (repositório remoto). Além disso, funciona como uma rede social para desenvolvedores exporem seus portfólios.
 
+```mermaid
+graph LR
+ subgraph Computador Local
+ A[Código editado] -->|Commit| B[(Git Local / Pasta monitorada)]
+ end
+ subgraph Nuvem
+ C[(GitHub / Repositório Remoto)]
+ end
+ B -->|Push| C
+ C -->|Pull / Clone| B
+ style B fill:#3B82F6,stroke:#1D4ED8,stroke-width:2px,color:#fff
+ style C fill:#10B981,stroke:#047857,stroke-width:2px,color:#fff
+```
+
 #### **3. Vocabulário Essencial**
 
 - **Repositório (Repository):** A pasta do seu projeto monitorada pelo Git.
@@ -42,9 +56,11 @@ O **versionamento de código** serve para organizar isso. Em vez de criar cópia
 
 1. Com o GitHub Desktop aberto, clique em **File > New Repository** (ou no botão **Create a New Repository on your Local Drive**).
 2. Preencha as seguintes informações:
-   - **Name:** `meu-primeiro-projeto-ar`
-   - **Local Path:** Escolha uma pasta de fácil acesso no seu computador (por exemplo, dentro de Documentos ou na Área de Trabalho).
-   - **Initialize this repository with a README:** Deixe marcada esta opção (ela cria um arquivo explicativo simples sobre o projeto).
+
+- **Name:** `meu-primeiro-projeto-ar`
+- **Local Path:** Escolha uma pasta de fácil acesso no seu computador (por exemplo, dentro de Documentos ou na Área de Trabalho).
+- **Initialize this repository with a README:** Deixe marcada esta opção (ela cria um arquivo explicativo simples sobre o projeto).
+
 3. Clique em **Create Repository**. Pronto! Sua pasta foi criada e o Git já está monitorando-a secretamente.
 
 #### **Passo 3: Publicando o Repositório no GitHub (Push)**
@@ -61,14 +77,18 @@ Por enquanto, o projeto existe apenas no seu computador. Vamos enviá-lo para a 
 1. No GitHub Desktop, clique no botão **Open in Visual Studio Code** (ou abra o VS Code manualmente e importe a pasta `meu-primeiro-projeto-ar` que você criou).
 2. No VS Code, abra o arquivo `README.md`.
 3. Adicione a seguinte linha ao final do arquivo:
-   ```markdown
-   Este é o meu primeiro repositório configurado com Git e GitHub Desktop para o Mini Curso de WebAR!
-   ```
+
+```markdown
+Este é o meu primeiro repositório configurado com Git e GitHub Desktop para o Mini Curso de WebAR!
+```
+
 4. Salve o arquivo (`Ctrl + S` no Windows ou `Cmd + S` no Mac).
 5. Volte para o **GitHub Desktop**. Note que na barra lateral esquerda, na aba **Changes**, o arquivo `README.md` aparece listado com um símbolo verde indicando a alteração.
 6. Na parte inferior esquerda, você verá dois campos de texto:
-   - **Summary (Required):** Escreva um título curto para a alteração, por exemplo: `Atualiza descrição no README`.
-   - **Description:** (Opcional) Explique o motivo da mudança.
+
+- **Summary (Required):** Escreva um título curto para a alteração, por exemplo: `Atualiza descrição no README`.
+- **Description:** (Opcional) Explique o motivo da mudança.
+
 7. Clique no botão azul **Commit to main**. Sua foto do código local está tirada!
 
 #### **Passo 5: Enviando as Modificações para a Nuvem**

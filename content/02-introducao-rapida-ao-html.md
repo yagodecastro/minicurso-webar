@@ -24,6 +24,18 @@ O HTML funciona com base em etiquetas (chamadas de **tags**). Quase todos os ele
 <h1 class="titulo-principal">Olá, Mundo!</h1>
 ```
 
+```
+┌───────────────────────────────────────────────┐
+│ <h1 class="titulo-principal"> Olá, Mundo! </h1> │
+└──┬─┬───┬───────────────────┬───┬─────────┬─┬───┘
+ │ │ │ │ │ │ │
+ │ │ └───── Atributo ────┘ │ │ └─ Tag de Fechamento
+ │ │ │ │ (com barra '/')
+ │ └───── Nome da Tag ─────────┼─────────┘
+ │ └─ Conteúdo da Tag
+ └─ Tag de Abertura
+```
+
 - `<h1>`: Tag de abertura (indica um título de nível 1, o mais importante).
 - `class="titulo-principal"`: É um **atributo** (informação extra sobre a tag) e seu respectivo **valor**.
 - `Olá, Mundo!`: O conteúdo que será visível na tela.
@@ -34,7 +46,21 @@ O HTML funciona com base em etiquetas (chamadas de **tags**). Quase todos os ele
 
 #### **3. O Esqueleto de uma Página Web**
 
-Todo arquivo HTML precisa de uma estrutura mínima de códigos para ser reconhecido corretamente por navegadores no mundo todo. Esse esqueleto inicial é dividido assim:
+Todo arquivo HTML precisa de uma estrutura mínima de códigos para ser reconhecido corretamente por navegadores no mundo todo. Esse esqueleto inicial é estruturado de forma hierárquica:
+
+```mermaid
+graph TD
+ HTML["Documento HTML (&lt;html&gt;)"]
+ HTML --> HEAD["Cabeça (&lt;head&gt;)"]
+ HTML --> BODY["Corpo (&lt;body&gt;)"]
+
+ HEAD --> HEAD_CONTENT["Configurações Invisíveis (Metadados, Título, CSS/Scripts)"]
+ BODY --> BODY_CONTENT["Conteúdo Visível (Cabeçalhos, Parágrafos, Imagens)"]
+
+ style HTML fill:#3B82F6,stroke:#1D4ED8,color:#fff
+ style HEAD fill:#6B7280,stroke:#374151,color:#fff
+ style BODY fill:#10B981,stroke:#047857,color:#fff
+```
 
 - `<!DOCTYPE html>`: Avisa ao navegador que este arquivo está escrito na versão mais atualizada (HTML5).
 - `<html lang="pt-BR">`: Envolve toda a página e indica que o idioma principal dela é o Português do Brasil.

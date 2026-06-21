@@ -20,4 +20,17 @@ Ao finalizar esta apostila, você terá construído e publicado um portfólio in
 6. Usar JavaScript para interações dinâmicas ao detectar a câmera.
 7. Publicar seu projeto gratuitamente na internet usando o GitHub.
 
+### **Roteiro de Aprendizagem**
+
+```mermaid
+graph LR
+ A[Git & Editor] --> B[HTML & A-Frame 3D]
+ B --> C[WebAR & Câmera]
+ C --> D[Marcadores & Imagens]
+ D --> E[Animações & Lógica]
+ E --> F[Deploy & Desafio]
+ style A fill:#4F46E5,stroke:#312E81,stroke-width:2px,color:#fff
+ style F fill:#10B981,stroke:#047857,stroke-width:2px,color:#fff
+```
+
 Vamos começar?

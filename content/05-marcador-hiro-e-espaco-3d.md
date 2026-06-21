@@ -16,6 +16,9 @@ A câmera do celular filma o ambiente em tempo real buscando por padrões geomé
 
 O **Hiro** é o marcador padrão de testes mais conhecido no mundo da Realidade Aumentada. Ele consiste em um caractere japonês preto cercado por uma borda preta grossa em um quadrado branco. A borda preta grossa é essencial porque ajuda o algoritmo da câmera a identificar o contorno e as quinas do marcador, mesmo sob condições ruins de iluminação.
 
+Você pode baixar a imagem oficial para usar no seu celular ou imprimir:
+![Marcador Hiro](https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/HIRO.jpg)
+
 #### **3. Os Eixos 3D em cima da Mesa**
 
 No capítulo anterior (Cena Virtual Pura), o centro do universo 3D ficava na posição da nossa tela. Agora, na Realidade Aumentada, **o centro do universo 3D (coordenada `0 0 0`) passa a ser o exato centro físico do seu marcador de papel.**
@@ -26,9 +29,37 @@ Os eixos se comportam da seguinte forma em relação ao marcador deitado na mesa
 - **Eixo Y (Vertical):** Representa a altura. Valores positivos sobem o objeto no ar, "levitando" acima da mesa.
 - **Eixo Z (Profundidade):** Controla a posição para frente ou para trás em relação à borda do papel.
 
+```mermaid
+graph TD
+ Origem["Centro do Marcador (0, 0, 0)"]
+
+ Origem -->|Eixo X + / -| X_Eixo["Laterais do Papel (Esquerda/Direita)"]
+ Origem -->|Eixo Y +| Y_Eixo["Altura Vertical (Levitar no Ar)"]
+ Origem -->|Eixo Z + / -| Z_Eixo["Profundidade (Frente/Trás do Papel)"]
+
+ style Origem fill:#4F46E5,stroke:#312E81,color:#fff
+ style X_Eixo fill:#EF4444,stroke:#B91C1C,color:#fff
+ style Y_Eixo fill:#10B981,stroke:#047857,color:#fff
+ style Z_Eixo fill:#D97706,stroke:#92400E,color:#fff
+```
+
 #### **4. O Efeito de Z-Fighting (Cintilação)**
 
 Quando colocamos dois objetos exatamente na mesma coordenada espacial (por exemplo, um plano virtual na altura `Y: 0` e o papel real que também está na altura `Y: 0`), o motor gráfico fica confuso sem saber qual superfície deve desenhar por cima. Isso causa um efeito visual desagradável onde o objeto virtual fica piscando ou cortado. Para evitar isso, costumamos dar uma leve elevação vertical nos nossos objetos virtuais (como `Y: 0.01`).
+
+```mermaid
+graph LR
+ subgraph Com Z-Fighting (Cintilação ❌)
+ A1[Plano Virtual: Y = 0.0] --- B1[Papel Físico: Y = 0.0]
+ B1 --> C1[Conflito: Textura pisca na tela]
+ end
+ subgraph Sem Z-Fighting (Correto ✔)
+ A2[Plano Virtual: Y = 0.01] -.->|Espaço Invisível| B2[Papel Físico: Y = 0.0]
+ B2 --> C2[Renderização estável e limpa]
+ end
+ style C1 fill:#EF4444,stroke:#B91C1C,color:#fff
+ style C2 fill:#10B981,stroke:#047857,color:#fff
+```
 
 ---
 

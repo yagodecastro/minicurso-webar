@@ -16,6 +16,18 @@ Para visualizar uma página web em desenvolvimento, o navegador de internet prec
 
 A extensão **Live Server** resolve esse problema criando um **servidor local de desenvolvimento** dentro do seu próprio computador. Ela gera um endereço local temporário (como `http://127.0.0.1:5500` ou similar) e abre a página no seu navegador de internet externo. Isso é extremamente importante para projetos de Realidade Aumentada (WebAR), pois o navegador integrado do VS Code (usado por extensões como o Live Preview) **bloqueia o acesso à câmera por motivos de segurança**. Usando o Live Server no seu navegador real, você poderá conceder a permissão da webcam normalmente.
 
+```mermaid
+graph TD
+ subgraph Errado
+ A[Dois cliques no index.html] -->|file:///Users/projeto/index.html| B[Navegador bloqueia câmera por segurança]
+ end
+ subgraph Correto
+ C[Executar Live Server] -->|http://127.0.0.1:5500| D[Navegador ativa webcam normalmente]
+ end
+ style A fill:#EF4444,stroke:#B91C1C,color:#fff
+ style C fill:#10B981,stroke:#047857,color:#fff
+```
+
 ---
 
 ### **Mão na Massa: Passo a Passo**
@@ -46,19 +58,21 @@ A extensão **Live Server** resolve esse problema criando um **servidor local de
 1. Na barra lateral esquerda do VS Code (Explorer), clique no ícone de **New File** (Novo Arquivo) ao lado do nome da sua pasta ou clique em **File > New File**.
 2. Nomeie o arquivo como `index.html` e aperte `Enter`.
 3. Escreva o seguinte código básico dentro do arquivo:
-   ```html
-   <!DOCTYPE html>
-   <html lang="pt-BR">
-     <head>
-       <meta charset="UTF-8" />
-       <title>Teste de Ambiente</title>
-     </head>
-     <body>
-       <h1>Ambiente Configurado com Sucesso!</h1>
-       <p>O VS Code e o Live Server já estão funcionando juntos.</p>
-     </body>
-   </html>
-   ```
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Teste de Ambiente</title>
+  </head>
+  <body>
+    <h1>Ambiente Configurado com Sucesso!</h1>
+    <p>O VS Code e o Live Server já estão funcionando juntos.</p>
+  </body>
+</html>
+```
+
 4. Salve o arquivo pressionando `Ctrl + S` (Windows) ou `Cmd + S` (Mac).
 5. Com o arquivo `index.html` aberto no editor, clique na opção **Go Live** que aparece na barra de status azul no canto inferior direito do VS Code (ou clique com o botão direito sobre o código e selecione **Open with Live Server**).
 6. O seu navegador web padrão (Chrome, Firefox, etc.) será aberto automaticamente na página `http://127.0.0.1:5500/index.html` mostrando a mensagem que você escreveu!

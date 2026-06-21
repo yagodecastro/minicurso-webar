@@ -10,11 +10,13 @@
 
 Até pouco tempo atrás, para experimentar a Realidade Aumentada (RA) no celular, o usuário precisava seguir um caminho longo e chato:
 
-1. Abrir a loja de aplicativos (App Store ou Google Play).
-2. Pesquisar o aplicativo do projeto.
-3. Baixar dezenas ou centenas de megabytes de dados (usando internet móvel ou Wi-Fi).
-4. Aceitar permissões profundas do sistema operacional.
-5. Finalmente abrir o app para usar a câmera.
+```
+Caminho Tradicional (Nativo):
+[Abrir Loja de Apps] ➔ [Pesquisar Aplicativo] ➔ [Baixar 100MB+] ➔ [Aceitar Permissões] ➔ [Usar a Câmera]
+
+Caminho WebAR (Revolucionário):
+[Escanear QR Code] ➔ [Abrir no Navegador] ➔ [Pronto para Usar!]
+```
 
 A **WebAR (Web Augmented Reality)** quebra todas essas barreiras. Em vez de um aplicativo nativo, a experiência inteira é executada **dentro do navegador de internet** que o usuário já tem instalado no aparelho. O fluxo de acesso se resume a:
 
@@ -33,6 +35,16 @@ Para usarmos essas bibliotecas no nosso site, usamos uma **CDN (Content Delivery
 
 - **[A-Frame](https://aframe.io/) (Mozilla):** É um framework web para construir mundos tridimensionais (3D) e de Realidade Virtual (VR). Ele permite criar cenários digitais usando marcações HTML simples, sem a necessidade de aprender WebGL complexo.
 - **[AR.js](https://ar-js-org.github.io/AR.js-Docs/):** É uma biblioteca leve de Realidade Aumentada para a Web. Ela estende as capacidades do A-Frame, adicionando funcionalidades de rastreamento de câmera e reconhecimento de marcadores físicos.
+
+```
+┌───────────────────────────────────┐
+│ AR.js │ (Rastreamento de câmera e marcador)
+├───────────────────────────────────┤
+│ A-Frame │ (Motor de renderização 3D/WebGL)
+├───────────────────────────────────┤
+│ Navegador HTML5 │ (Base estrutural)
+└───────────────────────────────────┘
+```
 
 ---
 

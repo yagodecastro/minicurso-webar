@@ -22,9 +22,9 @@ useHead({
           }
         })();
       `,
-      type: 'text/javascript'
-    }
-  ]
+      type: 'text/javascript',
+    },
+  ],
 })
 
 // Busca todos os capítulos para exibir na barra lateral
@@ -106,7 +106,9 @@ function formatChapterTitle(stem: string) {
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col md:flex-row antialiased transition-colors duration-300">
+  <div
+    class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col md:flex-row antialiased transition-colors duration-300"
+  >
     <!-- Header Mobile -->
     <header
       class="md:hidden flex items-center justify-between px-6 py-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 transition-colors duration-300"
@@ -121,7 +123,7 @@ function formatChapterTitle(stem: string) {
           >Mini</span
         >
       </NuxtLink>
-      
+
       <div class="flex items-center gap-2">
         <!-- Botão Alternar Tema (Mobile) -->
         <button
@@ -157,7 +159,9 @@ function formatChapterTitle(stem: string) {
       ]"
     >
       <!-- Logo da Plataforma -->
-      <div class="hidden md:flex items-center justify-between px-8 py-8 border-b border-slate-200 dark:border-slate-800/60 transition-colors duration-300">
+      <div
+        class="hidden md:flex items-center justify-between px-8 py-8 border-b border-slate-200 dark:border-slate-800/60 transition-colors duration-300"
+      >
         <div class="flex items-center gap-3">
           <div
             class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-indigo-500/10 dark:shadow-indigo-500/20 text-white"
@@ -189,7 +193,9 @@ function formatChapterTitle(stem: string) {
       <!-- Links de Navegação -->
       <nav class="flex-1 overflow-y-auto px-6 py-8 space-y-7">
         <div>
-          <h3 class="px-3 text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">
+          <h3
+            class="px-3 text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3"
+          >
             Introdução
           </h3>
           <NuxtLink
@@ -209,7 +215,11 @@ function formatChapterTitle(stem: string) {
 
         <div>
           <div class="flex items-center justify-between px-3 mb-3">
-            <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Capítulos</h3>
+            <h3
+              class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider"
+            >
+              Capítulos
+            </h3>
             <span
               class="text-[10px] px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full font-mono border border-slate-200 dark:border-slate-700"
               >{{ chapters.length }}</span
@@ -239,10 +249,15 @@ function formatChapterTitle(stem: string) {
       </nav>
 
       <!-- Rodapé da Sidebar -->
-      <div class="p-6 border-t border-slate-200 dark:border-slate-800/60 bg-slate-50 dark:bg-slate-950/20 flex flex-col gap-2 transition-colors duration-300">
+      <div
+        class="p-6 border-t border-slate-200 dark:border-slate-800/60 bg-slate-50 dark:bg-slate-950/20 flex flex-col gap-2 transition-colors duration-300"
+      >
         <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-500">
           <span>Biblioteca de AR</span>
-          <span class="font-mono bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-800">A-Frame + AR.js</span>
+          <span
+            class="font-mono bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-800"
+            >A-Frame + AR.js</span
+          >
         </div>
       </div>
     </aside>

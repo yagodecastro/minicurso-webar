@@ -21,6 +21,15 @@ No A-Frame, a âncora padrão de uma imagem fica exatamente no seu **centro geom
 - Se a sua imagem tem 1 metro de altura (`height="1"`) e você a posiciona na coordenada vertical zero (`Y: 0`), o A-Frame alinhará o centro da imagem com a mesa.
 - Isso significa que a metade de cima da imagem (0,5 metros) ficará visível flutuando acima da mesa, mas a metade inferior (0,5 metros) ficará **enterrada debaixo da mesa física** (desaparecendo da tela).
 
+```mermaid
+graph TD
+ subgraph Y = 0.0 (Errado ❌)
+ A1[Pivô no Centro do Personagem] --> B1[Metade de Cima: 0.5m Visível acima da mesa]
+ A1 --> C1[Metade de Baixo: 0.5m Enterrada abaixo da mesa]
+ end
+ style A1 fill:#EF4444,stroke:#B91C1C,color:#fff
+```
+
 #### **3. A Fórmula de Correção de Altura**
 
 Para fazer com que a base da imagem fique perfeitamente apoiada no papel físico sem afundar na superfície da mesa, precisamos elevá-la verticalmente (eixo Y). O cálculo é muito simples: basta deslocar o objeto para cima na exata **metade do valor da sua altura** (`height`):
@@ -29,6 +38,15 @@ $$\text{Posição } Y = \frac{\text{Altura do Objeto}}{2}$$
 
 - Se a altura for `1`, a posição Y deve ser `0.5`.
 - Se a altura for `1.6`, a posição Y deve ser `0.8`.
+
+```mermaid
+graph TD
+ subgraph Y = 0.5 (Correto ✔)
+ A2[Pivô elevado: Altura / 2] --> B2[Base do personagem apoia na mesa]
+ B2 --> C2[Personagem 100% visível no espaço virtual]
+ end
+ style A2 fill:#10B981,stroke:#047857,color:#fff
+```
 
 ---
 

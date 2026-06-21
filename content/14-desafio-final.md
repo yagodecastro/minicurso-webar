@@ -10,17 +10,17 @@ Um **Diorama** (ou teatro de sombras) é um modelo tridimensional que representa
 
 No desenvolvimento 3D e na Realidade Aumentada, podemos simular esse efeito de profundidade usando três imagens 2D transparentes (PNG) alinhadas em diferentes coordenadas do **Eixo Z (Profundidade)**:
 
-1.  **Camada de Fundo (Background):** Fica posicionada mais ao fundo (coordenada Z negativa, ex: `Z: -0.5`).
-2.  **Camada do Personagem (Midground):** Fica posicionada ao centro (coordenada `Z: 0`).
-3.  **Camada de Moldura/Obstáculos (Foreground):** Fica posicionada mais perto do espectador (coordenada Z positiva, ex: `Z: 0.5`).
+1. **Camada de Fundo (Background):** Fica posicionada mais ao fundo (coordenada Z negativa, ex: `Z: -0.5`).
+2. **Camada do Personagem (Midground):** Fica posicionada ao centro (coordenada `Z: 0`).
+3. **Camada de Moldura/Obstáculos (Foreground):** Fica posicionada mais perto do espectador (coordenada Z positiva, ex: `Z: 0.5`).
 
 Quando o usuário gira o marcador físico na frente da câmera, a perspectiva matemática faz com que a camada da frente se desloque mais rápido do que a camada do fundo. Isso gera um **efeito de paralaxe tridimensional realista**, dando a impressão de que estamos espiando dentro de uma caixa tridimensional física!
 
 ```mermaid
 graph TD
-    A["Moldura Frontal (Z: 0.5)"] -->|Mais próxima| D["Usuário / Câmera"]
-    B["Personagem Central (Z: 0.0)"] -->|Centro| D
-    C["Cenário de Fundo (Z: -0.5)"] -->|Mais afastado| D
+ A["Moldura Frontal (Z: 0.5)"] -->|Mais próxima| D["Usuário / Câmera"]
+ B["Personagem Central (Z: 0.0)"] -->|Centro| D
+ C["Cenário de Fundo (Z: -0.5)"] -->|Mais afastado| D
 ```
 
 ---
@@ -30,9 +30,11 @@ graph TD
 #### **Passo 1: Preparação das Mídias**
 
 1. Escolha ou desenhe três imagens PNG que tenham **fundo transparente**:
-   - `cenario-fundo.png` (ex: um portal de pedras, o interior de uma caverna ou estrelas no espaço).
-   - `personagem.png` (ex: seu avatar, um guerreiro, um robô ou animal).
-   - `moldura-frente.png` (ex: arbustos, rochas ou correntes que ficarão em primeiro plano moldurando a cena).
+
+- `cenario-fundo.png` (ex: um portal de pedras, o interior de uma caverna ou estrelas no espaço).
+- `personagem.png` (ex: seu avatar, um guerreiro, um robô ou animal).
+- `moldura-frente.png` (ex: arbustos, rochas ou correntes que ficarão em primeiro plano moldurando a cena).
+
 2. Salve as três imagens na pasta `assets` do seu projeto.
 3. Acesse a ferramenta online [AR.js Marker Training](https://arnext.org/marker-training/) e gere um novo marcador customizado com a sua própria marca ou logotipo. Baixe o arquivo `.patt` e salve na pasta `assets` como `marcador-diorama.patt`.
 
@@ -50,9 +52,10 @@ graph TD
 1. Dentro do bloco do seu marcador, insira as três tags `<a-image>` apontando para os IDs dos seus assets.
 2. Certifique-se de que a rotação de todas as camadas esteja como `"0 0 0"` para mantê-las em pé.
 3. Configure a profundidade de cada camada usando o eixo Z no atributo `position`:
-   - Fundo: `position="0 0.5 -0.5"`
-   - Meio (Personagem): `position="0 0.5 0"`
-   - Frente: `position="0 0.5 0.5"`
+
+- Fundo: `position="0 0.5 -0.5"`
+- Meio (Personagem): `position="0 0.5 0"`
+- Frente: `position="0 0.5 0.5"`
 
 > [!IMPORTANT]
 > Lembre-se da fórmula de correção de altura vista no Capítulo 9! Se a altura (`height`) das suas imagens for `1`, o posicionamento no eixo Y deve ser configurado como `0.5` em todas as camadas para que a base da cena fique colada no papel sem afundar na mesa.

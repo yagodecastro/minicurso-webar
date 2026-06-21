@@ -16,16 +16,28 @@ Para criarmos experiências premium, queremos que o holograma surja de forma sua
 
 O AR.js adiciona "sensores" especiais às tags de marcadores HTML. Esses sensores disparam eventos lógicos que o JavaScript consegue ler em tempo real:
 
-1.  **`markerFound` (Marcador Encontrado):** É executado no exato instante em que a câmera reconhece o padrão do seu arquivo `.patt`.
-2.  **`markerLost` (Marcador Perdido):** É executado no momento em que o marcador sai do campo de visão da câmera ou quando alguém o cobre com a mão.
+1. **`markerFound` (Marcador Encontrado):** É executado no exato instante em que a câmera reconhece o padrão do seu arquivo `.patt`.
+2. **`markerLost` (Marcador Perdido):** É executado no momento em que o marcador sai do campo de visão da câmera ou quando alguém o cobre com a mão.
 
 #### **3. Manipulação de Elementos via JavaScript (DOM)**
 
-Para fazer o holograma acender, programamos o JavaScript para fazer o seguinte fluxo:
+Para fazer o holograma acender, programamos o JavaScript para fazer o seguinte fluxo de transição:
 
-1.  Iniciar o personagem com opacidade invisível (`opacity="0"`).
-2.  Quando o sensor acusar `markerFound`, o JavaScript injeta dinamicamente um atributo de animação de opacidade no objeto, fazendo-o ir de `0` para `1`.
-3.  Quando o sensor acusar `markerLost`, o JavaScript remove essa animação e retorna a opacidade para `0`, preparando o objeto para o próximo ciclo de detecção.
+```mermaid
+flowchart TD
+ A[Iniciar Página: Opacidade 0] --> B{Câmera buscou o .patt?}
+ B -- Sim (markerFound) --> C[Injeta animation__aparecer]
+ C --> D[Personagem surge suavemente e brilha]
+ B -- Não / Escondeu (markerLost) --> E[Remove animation__aparecer]
+ E --> F[Reseta opacidade para 0]
+ style A fill:#F3F4F6,stroke:#9CA3AF
+ style C fill:#DBEAFE,stroke:#3B82F6
+ style F fill:#FEE2E2,stroke:#EF4444
+```
+
+1. Iniciar o personagem com opacidade invisível (`opacity="0"`).
+2. Quando o sensor acusar `markerFound`, o JavaScript injeta dinamicamente um atributo de animação de opacidade no objeto, fazendo-o ir de `0` para `1`.
+3. Quando o sensor acusar `markerLost`, o JavaScript remove essa animação e retorna a opacidade para `0`, preparando o objeto para o próximo ciclo de detecção.
 
 ---
 
@@ -63,28 +75,28 @@ Para que o JavaScript saiba exatamente quem controlar na tela, precisamos dar no
 1. Logo abaixo do fechamento da tag da cena (`</a-scene>`), pouco antes do fechamento de `</body>`, adicione a tag `<script>` com a lógica de controle:
 
 ```html
-    </a-scene>
+ </a-scene>
 
-    <!-- Início da programação lógica -->
-    <script>
-        // 1. Captura os elementos HTML em variáveis do JavaScript
-        const marcador = document.querySelector('#meu-marcador');
-        const arte = document.querySelector('#arte-principal');
+ <!-- Início da programação lógica -->
+ <script>
+ // 1. Captura os elementos HTML em variáveis do JavaScript
+ const marcador = document.querySelector('#meu-marcador');
+ const arte = document.querySelector('#arte-principal');
 
-        // 2. Escuta quando a câmera encontra o marcador
-        marcador.addEventListener('markerFound', () => {
-            // Injeta uma animação de fade-in na opacidade
-            arte.setAttribute('animation__aparecer', 'property: opacity; to: 1; dur: 600; easing: linear');
-        });
+ // 2. Escuta quando a câmera encontra o marcador
+ marcador.addEventListener('markerFound', () => {
+ // Injeta uma animação de fade-in na opacidade
+ arte.setAttribute('animation__aparecer', 'property: opacity; to: 1; dur: 600; easing: linear');
+ });
 
-        // 3. Escuta quando a câmera perde o marcador de vista
-        marcador.addEventListener('markerLost', () => {
-            // Remove a animação de fade-in para evitar conflitos futuros
-            arte.removeAttribute('animation__aparecer');
-            // Retorna o objeto ao estado invisível
-            arte.setAttribute('opacity', '0');
-        });
-    </script>
+ // 3. Escuta quando a câmera perde o marcador de vista
+ marcador.addEventListener('markerLost', () => {
+ // Remove a animação de fade-in para evitar conflitos futuros
+ arte.removeAttribute('animation__aparecer');
+ // Retorna o objeto ao estado invisível
+ arte.setAttribute('opacity', '0');
+ });
+ </script>
 </body>
 ```
 

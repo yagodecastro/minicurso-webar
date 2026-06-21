@@ -16,13 +16,45 @@ Se você usar uma imagem suave, como uma pintura em aquarela ou uma foto desfoca
 
 Para garantir que seu marcador customizado seja lido de forma rápida e estável, sua imagem deve seguir estas diretrizes:
 
-1.  **Assimetria Obrigatória:** Se você usar um desenho simétrico (como uma estrela de cinco pontas idênticas, um círculo perfeito ou uma cruz), o AR.js ficará confuso. Ele não conseguirá distinguir qual lado do marcador está para cima, para baixo, para a esquerda ou direita. Como resultado, seu modelo 3D ficará girando sem controle. Use sempre desenhos que tenham um "lado de cima" e um "lado de baixo" bem definidos (como letras, setas ou silhuetas complexas).
-2.  **Alto Contraste:** Prefira desenhos em preto e branco ou cores primárias muito contrastantes. Formas simples e linhas sólidas funcionam muito melhor do que degradês e texturas suaves.
-3.  **Moldura de Enquadramento:** O marcador precisa de uma borda preta grossa ao redor da imagem (ou uma borda branca sobre fundo escuro). Essa moldura serve para o algoritmo isolar o seu desenho do resto da mesa real, sabendo exatamente onde começa e termina o marcador.
+1. **Assimetria Obrigatória:** Se você usar um desenho simétrico (como uma estrela de cinco pontas idênticas, um círculo perfeito ou uma cruz), o AR.js ficará confuso. Ele não conseguirá distinguir qual lado do marcador está para cima, para baixo, para a esquerda ou direita. Como resultado, seu modelo 3D ficará girando sem controle. Use sempre desenhos que tenham um "lado de cima" e um "lado de baixo" bem definidos (como letras, setas ou silhuetas complexas).
+2. **Alto Contraste:** Prefira desenhos em preto e branco ou cores primárias muito contrastantes. Formas simples e linhas sólidas funcionam muito melhor do que degradês e texturas suaves.
+3. **Moldura de Enquadramento:** O marcador precisa de uma borda preta grossa ao redor da imagem (ou uma borda branca sobre fundo escuro). Essa moldura serve para o algoritmo isolar o seu desenho do resto da mesa real, sabendo exatamente onde começa e termina o marcador.
+
+```mermaid
+graph TD
+ Start[Criar Marcador] --> Contraste{Alto Contraste?}
+ Contraste -->|Não ❌| Fail1[Rejeitado pelo AR.js: Instabilidade]
+ Contraste -->|Sim ✔| Simetria{É Assimétrico?}
+
+ Simetria -->|Não ❌| Fail2[Rejeitado: Modelo gira sem controle]
+ Simetria -->|Sim ✔| Moldura{Possui Moldura Grossa?}
+
+ Moldura -->|Não ❌| Fail3[Rejeitado: Câmera não isola o desenho]
+ Moldura -->|Sim ✔| Success[Marcador Aprovado 🚀]
+
+ style Fail1 fill:#FEE2E2,stroke:#EF4444,color:#991B1B
+ style Fail2 fill:#FEE2E2,stroke:#EF4444,color:#991B1B
+ style Fail3 fill:#FEE2E2,stroke:#EF4444,color:#991B1B
+ style Success fill:#D1FAE5,stroke:#10B981,color:#065F46
+```
 
 #### **3. O que é o arquivo `.patt`?**
 
 O AR.js não analisa a sua imagem original (PNG/JPG) diretamente no celular para economizar bateria e processamento. Em vez disso, nós passamos a imagem por uma ferramenta que a converte em um arquivo de dados simplificado com a extensão **`.patt`** (_pattern_ ou padrão). Este arquivo contém uma descrição numérica das quinas e contrastes da sua imagem, tornando a leitura do celular extremamente leve e rápida.
+
+```mermaid
+graph TD
+ Arte[Imagem Original PNG/JPG] --> Gerador[AR.js Marker Training]
+
+ Gerador -->|Exporta Dados| Patt[Arquivo de dados .patt]
+ Gerador -->|Exporta Visual| Img[Marcador com Borda Preta]
+
+ Patt -->|Importado| HTML[Código HTML5]
+ Img -->|Impresso / Tela| Celular[Câmera do Dispositivo]
+
+ style Patt fill:#3B82F6,stroke:#1D4ED8,color:#fff
+ style Img fill:#10B981,stroke:#047857,color:#fff
+```
 
 ---
 

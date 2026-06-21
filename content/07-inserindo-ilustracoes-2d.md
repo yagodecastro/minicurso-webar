@@ -28,6 +28,16 @@ Se você tiver uma imagem retangular (por exemplo, com proporção de 2 de largu
 
 Para que a ilustração seja renderizada no mundo real com suas proporções perfeitas de design, os valores de `width` e `height` da tag `<a-image>` devem seguir a mesma proporção matemática de pixels da imagem original.
 
+```mermaid
+graph TD
+ Img[Imagem Original: 800x400px Proporção 2:1]
+ Img -->|width='1' height='1'| Dist[Distorcido: Imagem espremida ❌]
+ Img -->|width='2' height='1'| Corr[Correto: Proporção preservada ✔]
+
+ style Dist fill:#EF4444,stroke:#B91C1C,color:#fff
+ style Corr fill:#10B981,stroke:#047857,color:#fff
+```
+
 ---
 
 ### **Mão na Massa: Passo a Passo**

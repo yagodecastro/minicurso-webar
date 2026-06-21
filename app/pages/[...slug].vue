@@ -86,7 +86,9 @@ function formatChapterTitle(stem: string) {
       v-if="currentIndex !== -1"
       class="flex items-center gap-3 text-sm text-indigo-600 dark:text-indigo-400 font-medium tracking-wide"
     >
-      <span class="px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 font-mono">
+      <span
+        class="px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 font-mono"
+      >
         Capítulo {{ String(currentIndex + 1).padStart(2, '0') }}
       </span>
       <span class="text-slate-300 dark:text-slate-700">•</span>
@@ -113,11 +115,15 @@ function formatChapterTitle(stem: string) {
         :to="prevChapter.path"
         class="flex-1 group flex flex-col justify-center items-start p-5 rounded-2xl bg-slate-100/40 dark:bg-slate-900/40 hover:bg-slate-200/50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200"
       >
-        <span class="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 font-medium mb-1">
+        <span
+          class="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 font-medium mb-1"
+        >
           <ArrowLeft class="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
           Capítulo Anterior
         </span>
-        <span class="text-slate-700 dark:text-slate-300 group-hover:text-slate-950 dark:group-hover:text-white font-semibold text-sm transition-colors">
+        <span
+          class="text-slate-700 dark:text-slate-300 group-hover:text-slate-950 dark:group-hover:text-white font-semibold text-sm transition-colors"
+        >
           {{ formatChapterTitle(prevChapter.stem) }}
         </span>
       </NuxtLink>

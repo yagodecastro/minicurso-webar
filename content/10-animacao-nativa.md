@@ -23,6 +23,31 @@ Para configurar uma animação, passamos uma lista de parâmetros dentro do atri
 - **`loop`:** Define se o movimento é contínuo. Usamos `true` para rodar infinitamente.
 - **`easing`:** Controla a aceleração física do movimento. Movimentos com curvas lineares parecem robóticos e artificiais. Curvas como **`easeInOutSine`** ou `easeInOutQuad` fazem com que o objeto comece a se mover devagar, acelere no meio e desacelere no final, simulando a física real da gravidade ou da respiração.
 
+```mermaid
+graph TD
+ subgraph Easing Linear (Robótico ❌)
+ A1[Velocidade Constante] --> B1[Início brusco e fim abrupto]
+ end
+ subgraph Easing easeInOutSine (Orgânico ✔)
+ A2[Velocidade Variável] --> B2[Começa devagar, acelera no meio, amortece no fim]
+ end
+ style A1 fill:#EF4444,stroke:#B91C1C,color:#fff
+ style A2 fill:#10B981,stroke:#047857,color:#fff
+```
+
+```mermaid
+graph LR
+ subgraph Ciclo de Repetição (dir)
+ dir_normal[dir: normal] -->|Crescimento| to_normal[Escala: 1.2]
+ to_normal -->|Corte Seco ❌| loop_normal[Reseta instantâneo para 1.0]
+
+ dir_alt[dir: alternate] -->|Crescimento| to_alt[Escala: 1.2]
+ to_alt -->|Suave ✔| loop_alt[Murcha gradualmente até 1.0]
+ end
+ style loop_normal fill:#FEE2E2,stroke:#EF4444,color:#991B1B
+ style loop_alt fill:#D1FAE5,stroke:#10B981,color:#065F46
+```
+
 ---
 
 ### **Mão na Massa: Passo a Passo**

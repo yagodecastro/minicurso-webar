@@ -30,6 +30,28 @@ Para posicionar elementos no espaço tridimensional virtual, usamos três valore
 - **Eixo Y (Vertical/Altura):** Valores positivos movem o objeto para **cima** e negativos para **baixo**.
 - **Eixo Z (Profundidade):** Valores negativos afastam o objeto para o **fundo** da cena (para longe de onde a câmera inicia). Valores positivos trazem o objeto para mais **perto** de nós.
 
+```mermaid
+graph TD
+ Origem["Origem do Espaço 3D (0, 0, 0)"]
+
+ Origem -->|Eixo X +| X_Pos["Direita (Valores Positivos)"]
+ Origem -->|Eixo X -| X_Neg["Esquerda (Valores Negativos)"]
+
+ Origem -->|Eixo Y +| Y_Pos["Cima (Valores Positivos)"]
+ Origem -->|Eixo Y -| Y_Neg["Baixo (Valores Negativos)"]
+
+ Origem -->|Eixo Z +| Z_Pos["Perto / Atrás (Valores Positivos)"]
+ Origem -->|Eixo Z -| Z_Neg["Longe / Frente (Valores Negativos)"]
+
+ style Origem fill:#4F46E5,stroke:#312E81,color:#fff
+ style X_Pos fill:#EF4444,stroke:#B91C1C,color:#fff
+ style X_Neg fill:#FCA5A5,stroke:#EF4444,color:#991B1B
+ style Y_Pos fill:#10B981,stroke:#047857,color:#fff
+ style Y_Neg fill:#A7F3D0,stroke:#10B981,color:#065F46
+ style Z_Pos fill:#D97706,stroke:#92400E,color:#fff
+ style Z_Neg fill:#FDE68A,stroke:#D97706,color:#78350F
+```
+
 ```markdown
 Exemplo: position="-1 0.5 -3"
 
@@ -38,7 +60,7 @@ Exemplo: position="-1 0.5 -3"
 - Afastará o elemento 3 metros para o fundo da tela (Z: -3).
 ```
 
-#### **4. Rotação e Escala**
+#### **4. Rotação e Escala** e
 
 - **Rotation (`rotation="X Y Z"`):** Define os graus de rotação do objeto ao redor de cada eixo físico (de `0` a `360` graus).
 - **Scale (`scale="X Y Z"`):** Multiplica o tamanho do objeto nos eixos X, Y e Z. O valor padrão de escala de qualquer objeto é `1 1 1`. Se você colocar `2 2 2`, o objeto dobrará de tamanho em todas as direções.

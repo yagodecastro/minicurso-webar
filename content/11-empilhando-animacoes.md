@@ -28,14 +28,29 @@ Você pode criar quantas animações desejar em um mesmo elemento, bastando adic
 <a-image animation__pulsar="..." animation__flutuar="..." animation__girar="..."></a-image>
 ```
 
+```
+Estrutura do Namespace no compilador do A-Frame:
+Tag HTML ──► Lendo animation__pulsar ──► Instancia Componente Escala (Suave)
+ ──► Lendo animation__flutuar ──► Instancia Componente Posição (Suave)
+```
+
 #### **3. Criando o Efeito de Flutuabilidade Natural**
 
 Para criar um efeito de holograma flutuante realista (semelhante a um fantasma ou objeto magnético), combinamos dois movimentos com velocidades e durações diferentes:
 
-1.  **Pulsação de Escala (`scale`):** O objeto expande e contrai levemente no tamanho a cada 1 segundo (duração de `1000`ms).
-2.  **Flutuação Vertical (`position` no eixo Y):** O objeto sobe e desce lentamente no ar a cada 2 segundos (duração de `2000`ms).
+1. **Pulsação de Escala (`scale`):** O objeto expande e contrai levemente no tamanho a cada 1 segundo (duração de `1000`ms).
+2. **Flutuação Vertical (`position` no eixo Y):** O objeto sobe e desce lentamente no ar a cada 1,8 segundos (duração de `1800`ms).
 
 Como as durações são diferentes, os movimentos não se completam no mesmo instante, o que quebra a repetição robótica e gera um balanço muito mais suave e natural aos olhos do usuário.
+
+```mermaid
+graph TD
+ A[Animação 1: Pulsar Escala] -->|Ciclo de 1000ms| C[Movimento Final Combinado]
+ B[Animação 2: Flutuar Y] -->|Ciclo de 1800ms| C
+ C --> D[Balanço orgânico e fluido sem repetição mecânica imediata ✔]
+ style C fill:#4F46E5,stroke:#312E81,color:#fff
+ style D fill:#10B981,stroke:#047857,color:#fff
+```
 
 ---
 

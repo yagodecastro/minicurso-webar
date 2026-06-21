@@ -15,6 +15,20 @@ No entanto, formatos de imagem como o **PNG** contêm um quarto canal de dados c
 - **Imagens JPG:** Não suportam canal alfa. Se você tentar criar um recorte redondo, o JPG preencherá o resto da caixa retangular com uma cor sólida (geralmente branco ou preto). Na Realidade Aumentada, isso fica muito feio, parecendo uma folha de papel impressa flutuando no ar.
 - **Imagens PNG:** Suportam canal alfa. Isso permite que o A-Frame recorte as bordas perfeitamente e exiba apenas o personagem ou logotipo flutuando fisicamente sobre a sua mesa real capturada pela câmera.
 
+```mermaid
+graph TD
+ subgraph Renderização com JPG
+ A1[Imagem JPG sem Canal Alfa] --> B1[Fundo branco opaco desenhado]
+ B1 --> C1[Holograma parece papel flutuando ❌]
+ end
+ subgraph Renderização com PNG
+ A2[Imagem PNG com Canal Alfa] --> B2[Pixels com transparência ocultados]
+ B2 --> C2[Holograma funde-se ao mundo real ✔]
+ end
+ style C1 fill:#EF4444,stroke:#B91C1C,color:#fff
+ style C2 fill:#10B981,stroke:#047857,color:#fff
+```
+
 #### **2. O Sistema de Pré-Carregamento (`<a-assets>`)**
 
 Imagens grandes ou modelos 3D podem demorar alguns segundos para baixar da internet. Se você carregar esses arquivos diretamente nas tags tridimensionais (como `<a-image src="foto-pesada.png">`), o usuário experimentará travamentos ou verá os objetos surgirem na tela com atraso (piscando do nada quando o download terminar).
@@ -22,6 +36,21 @@ Imagens grandes ou modelos 3D podem demorar alguns segundos para baixar da inter
 Para resolver isso, usamos a tag **`<a-assets>`** (ativos/recursos) logo no topo do `<a-scene>`. Ela serve como a "sala de pré-carregamento" ou "bastidores" do seu código.
 
 O A-Frame pausa a exibição da tela 3D até que todas as mídias listadas dentro de `<a-assets>` tenham sido totalmente baixadas pelo navegador. Desta forma, quando a câmera ligar, todos os recursos visuais estarão prontos no cache local do computador ou celular do usuário.
+
+```mermaid
+graph TD
+ subgraph Sem a-assets (Engasgos ❌)
+ A1[Câmera liga] --> B1[Marcador lido]
+ B1 --> C1[Tela pisca/trava enquanto faz download]
+ end
+ subgraph Com a-assets (Fluido e Otimizado ✔)
+ A2[Aguardando download / Cache] --> B2[Câmera liga]
+ B2 --> C2[Marcador lido]
+ C2 --> D2[Renderização instantânea]
+ end
+ style C1 fill:#EF4444,stroke:#B91C1C,color:#fff
+ style D2 fill:#10B981,stroke:#047857,color:#fff
+```
 
 #### **3. O que significa `crossorigin="anonymous"`?**
 
@@ -79,10 +108,11 @@ Como adicionamos novos arquivos e organizamos o código de forma profissional, t
 
 1. Abra o terminal integrado no VS Code (ou use o GitHub Desktop).
 2. Registre as modificações:
-   ```bash
-   git add .
-   git commit -m "Adiciona assets em PNG e configura pre-carregamento"
-   ```
+
+```bash
+git add .
+git commit -m "Adiciona assets em PNG e configura pre-carregamento"
+```
 
 ---
 
