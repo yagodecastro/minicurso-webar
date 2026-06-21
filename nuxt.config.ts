@@ -16,9 +16,13 @@ export default defineNuxtConfig({
     },
     build: {
       chunkSizeWarningLimit: 2500,
+      sourcemap: false,
     },
   },
-  sourcemap: false,
+  sourcemap: {
+    server: false,
+    client: false,
+  },
   devtools: { enabled: true },
   content: {
     build: {
