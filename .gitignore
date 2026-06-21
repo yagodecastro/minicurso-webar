@@ -31,3 +31,4 @@ logs
 # Bun logs
 bun-debug.log
 
+.vercel

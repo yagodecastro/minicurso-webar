@@ -14,7 +14,11 @@ export default defineNuxtConfig({
         'mermaid',
       ],
     },
+    build: {
+      chunkSizeWarningLimit: 2500,
+    },
   },
+  sourcemap: false,
   devtools: { enabled: true },
   content: {
     build: {
