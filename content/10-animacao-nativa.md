@@ -25,10 +25,10 @@ Para configurar uma animação, passamos uma lista de parâmetros dentro do atri
 
 ```mermaid
 graph TD
- subgraph Easing Linear (Robótico ❌)
+ subgraph easing_linear["Easing Linear (Robótico ❌)"]
  A1[Velocidade Constante] --> B1[Início brusco e fim abrupto]
  end
- subgraph Easing easeInOutSine (Orgânico ✔)
+ subgraph easing_organico["Easing easeInOutSine (Orgânico ✔)"]
  A2[Velocidade Variável] --> B2[Começa devagar, acelera no meio, amortece no fim]
  end
  style A1 fill:#EF4444,stroke:#B91C1C,color:#fff
@@ -37,7 +37,7 @@ graph TD
 
 ```mermaid
 graph LR
- subgraph Ciclo de Repetição (dir)
+ subgraph ciclo_repeticao["Ciclo de Repetição (dir)"]
  dir_normal[dir: normal] -->|Crescimento| to_normal[Escala: 1.2]
  to_normal -->|Corte Seco ❌| loop_normal[Reseta instantâneo para 1.0]
 

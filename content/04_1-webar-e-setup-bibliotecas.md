@@ -36,16 +36,6 @@ Para usarmos essas bibliotecas no nosso site, usamos uma **CDN (Content Delivery
 - **[A-Frame](https://aframe.io/) (Mozilla):** É um framework web para construir mundos tridimensionais (3D) e de Realidade Virtual (VR). Ele permite criar cenários digitais usando marcações HTML simples, sem a necessidade de aprender WebGL complexo.
 - **[AR.js](https://ar-js-org.github.io/AR.js-Docs/):** É uma biblioteca leve de Realidade Aumentada para a Web. Ela estende as capacidades do A-Frame, adicionando funcionalidades de rastreamento de câmera e reconhecimento de marcadores físicos.
 
-```
-┌───────────────────────────────────┐
-│ AR.js │ (Rastreamento de câmera e marcador)
-├───────────────────────────────────┤
-│ A-Frame │ (Motor de renderização 3D/WebGL)
-├───────────────────────────────────┤
-│ Navegador HTML5 │ (Base estrutural)
-└───────────────────────────────────┘
-```
-
 ---
 
 ### **Mão na Massa: Passo a Passo**

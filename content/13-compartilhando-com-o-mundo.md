@@ -17,21 +17,6 @@ Como vimos no Capítulo 3.2, os navegadores de smartphones possuem restrições 
 1. Ambiente de testes local (`localhost` ou `127.0.0.1`), que só funciona dentro do seu próprio computador.
 2. Sites publicados sob uma conexão criptografada segura com suporte ao protocolo **HTTPS** (o famoso ícone do cadeado).
 
-```
- ┌───────────────┐
- │ Navegador │
- └───────┬───────┘
- │
- Tenta acessar a câmera do celular?
- │
- ┌────────────────┴────────────────┐
- [ HTTP Comum ] [ HTTPS Seguro ]
- (Sem criptografia) (Link com cadeado)
- │ │
- ▼ ▼
- Câmera Bloqueada ❌ Câmera Liberada ✔
-```
-
 Ao publicar seu projeto no GitHub Pages, o GitHub gera automaticamente um endereço seguro do tipo `https://seu-usuario.github.io/nome-do-repositorio/`. Com essa URL segura, o navegador de qualquer smartphone Android ou iPhone liberará o acesso à câmera física do usuário sem restrições.
 
 ---

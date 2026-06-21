@@ -19,10 +19,10 @@ O **versionamento de código** serve para organizar isso. Em vez de criar cópia
 
 ```mermaid
 graph LR
- subgraph Computador Local
+ subgraph local["Computador Local"]
  A[Código editado] -->|Commit| B[(Git Local / Pasta monitorada)]
  end
- subgraph Nuvem
+ subgraph nuvem["Nuvem"]
  C[(GitHub / Repositório Remoto)]
  end
  B -->|Push| C

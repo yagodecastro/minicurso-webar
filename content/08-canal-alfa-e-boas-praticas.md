@@ -17,11 +17,11 @@ No entanto, formatos de imagem como o **PNG** contêm um quarto canal de dados c
 
 ```mermaid
 graph TD
- subgraph Renderização com JPG
+ subgraph render_jpg["Renderização com JPG"]
  A1[Imagem JPG sem Canal Alfa] --> B1[Fundo branco opaco desenhado]
  B1 --> C1[Holograma parece papel flutuando ❌]
  end
- subgraph Renderização com PNG
+ subgraph render_png["Renderização com PNG"]
  A2[Imagem PNG com Canal Alfa] --> B2[Pixels com transparência ocultados]
  B2 --> C2[Holograma funde-se ao mundo real ✔]
  end
@@ -39,11 +39,11 @@ O A-Frame pausa a exibição da tela 3D até que todas as mídias listadas dentr
 
 ```mermaid
 graph TD
- subgraph Sem a-assets (Engasgos ❌)
+ subgraph sem_assets["Sem a-assets (Engasgos ❌)"]
  A1[Câmera liga] --> B1[Marcador lido]
  B1 --> C1[Tela pisca/trava enquanto faz download]
  end
- subgraph Com a-assets (Fluido e Otimizado ✔)
+ subgraph com_assets["Com a-assets (Fluido e Otimizado ✔)"]
  A2[Aguardando download / Cache] --> B2[Câmera liga]
  B2 --> C2[Marcador lido]
  C2 --> D2[Renderização instantânea]

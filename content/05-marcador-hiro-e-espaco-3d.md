@@ -49,11 +49,11 @@ Quando colocamos dois objetos exatamente na mesma coordenada espacial (por exemp
 
 ```mermaid
 graph LR
- subgraph Com Z-Fighting (Cintilação ❌)
+ subgraph com_z["Com Z-Fighting (Cintilação ❌)"]
  A1[Plano Virtual: Y = 0.0] --- B1[Papel Físico: Y = 0.0]
  B1 --> C1[Conflito: Textura pisca na tela]
  end
- subgraph Sem Z-Fighting (Correto ✔)
+ subgraph sem_z["Sem Z-Fighting (Correto ✔)"]
  A2[Plano Virtual: Y = 0.01] -.->|Espaço Invisível| B2[Papel Físico: Y = 0.0]
  B2 --> C2[Renderização estável e limpa]
  end

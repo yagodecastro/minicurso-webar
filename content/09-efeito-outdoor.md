@@ -23,7 +23,7 @@ No A-Frame, a âncora padrão de uma imagem fica exatamente no seu **centro geom
 
 ```mermaid
 graph TD
- subgraph Y = 0.0 (Errado ❌)
+ subgraph y_errado["Y = 0.0 (Errado ❌)"]
  A1[Pivô no Centro do Personagem] --> B1[Metade de Cima: 0.5m Visível acima da mesa]
  A1 --> C1[Metade de Baixo: 0.5m Enterrada abaixo da mesa]
  end
@@ -41,7 +41,7 @@ $$\text{Posição } Y = \frac{\text{Altura do Objeto}}{2}$$
 
 ```mermaid
 graph TD
- subgraph Y = 0.5 (Correto ✔)
+ subgraph y_correto["Y = 0.5 (Correto ✔)"]
  A2[Pivô elevado: Altura / 2] --> B2[Base do personagem apoia na mesa]
  B2 --> C2[Personagem 100% visível no espaço virtual]
  end

@@ -18,10 +18,10 @@ A extensão **Live Server** resolve esse problema criando um **servidor local de
 
 ```mermaid
 graph TD
- subgraph Errado
+ subgraph errado["Errado"]
  A[Dois cliques no index.html] -->|file:///Users/projeto/index.html| B[Navegador bloqueia câmera por segurança]
  end
- subgraph Correto
+ subgraph correto["Correto"]
  C[Executar Live Server] -->|http://127.0.0.1:5500| D[Navegador ativa webcam normalmente]
  end
  style A fill:#EF4444,stroke:#B91C1C,color:#fff
