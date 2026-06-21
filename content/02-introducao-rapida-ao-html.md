@@ -24,18 +24,6 @@ O HTML funciona com base em etiquetas (chamadas de **tags**). Quase todos os ele
 <h1 class="titulo-principal">Olá, Mundo!</h1>
 ```
 
-```
-┌───────────────────────────────────────────────┐
-│ <h1 class="titulo-principal"> Olá, Mundo! </h1> │
-└──┬─┬───┬───────────────────┬───┬─────────┬─┬───┘
- │ │ │ │ │ │ │
- │ │ └───── Atributo ────┘ │ │ └─ Tag de Fechamento
- │ │ │ │ (com barra '/')
- │ └───── Nome da Tag ─────────┼─────────┘
- │ └─ Conteúdo da Tag
- └─ Tag de Abertura
-```
-
 - `<h1>`: Tag de abertura (indica um título de nível 1, o mais importante).
 - `class="titulo-principal"`: É um **atributo** (informação extra sobre a tag) e seu respectivo **valor**.
 - `Olá, Mundo!`: O conteúdo que será visível na tela.

@@ -52,5 +52,8 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/**': { prerender: true },
   },
+  nitro: {
+    preset: 'vercel-static',
+  },
   compatibilityDate: '2024-04-03',
 })
