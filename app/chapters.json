@@ -1,0 +1,116 @@
+[
+  {
+    "path": "/introducao",
+    "stem": "00-introducao",
+    "title": "Manual de Desenvolvimento: Realidade Aumentada na Web com A-Frame e AR.js",
+    "sortValue": 0
+  },
+  {
+    "path": "/git-e-github",
+    "stem": "001-git-e-github",
+    "title": "001-git-e-github",
+    "sortValue": 1
+  },
+  {
+    "path": "/preparando-as-ferramentas",
+    "stem": "01-preparando-as-ferramentas",
+    "title": "01-preparando-as-ferramentas",
+    "sortValue": 1
+  },
+  {
+    "path": "/introducao-rapida-ao-html",
+    "stem": "02-introducao-rapida-ao-html",
+    "title": "02-introducao-rapida-ao-html",
+    "sortValue": 2
+  },
+  {
+    "path": "/fundamentos-do-a-frame",
+    "stem": "03-fundamentos-do-a-frame",
+    "title": "03-fundamentos-do-a-frame",
+    "sortValue": 3
+  },
+  {
+    "path": "/webar-e-setup-bibliotecas",
+    "stem": "04_1-webar-e-setup-bibliotecas",
+    "title": "04_1-webar-e-setup-bibliotecas",
+    "sortValue": 4.1
+  },
+  {
+    "path": "/a-scene-e-camera-virtual",
+    "stem": "04_2-a-scene-e-camera-virtual",
+    "title": "04_2-a-scene-e-camera-virtual",
+    "sortValue": 4.2
+  },
+  {
+    "path": "/marcador-hiro-e-espaco-3d",
+    "stem": "05-marcador-hiro-e-espaco-3d",
+    "title": "05-marcador-hiro-e-espaco-3d",
+    "sortValue": 5
+  },
+  {
+    "path": "/liberdade-criativa-com-marcadores-proprios",
+    "stem": "06-liberdade-criativa-com-marcadores-proprios",
+    "title": "06-liberdade-criativa-com-marcadores-proprios",
+    "sortValue": 6
+  },
+  {
+    "path": "/inserindo-ilustracoes-2d",
+    "stem": "07-inserindo-ilustracoes-2d",
+    "title": "07-inserindo-ilustracoes-2d",
+    "sortValue": 7
+  },
+  {
+    "path": "/canal-alfa-e-boas-praticas",
+    "stem": "08-canal-alfa-e-boas-praticas",
+    "title": "08-canal-alfa-e-boas-praticas",
+    "sortValue": 8
+  },
+  {
+    "path": "/efeito-outdoor",
+    "stem": "09-efeito-outdoor",
+    "title": "09-efeito-outdoor",
+    "sortValue": 9
+  },
+  {
+    "path": "/animacao-nativa",
+    "stem": "10-animacao-nativa",
+    "title": "10-animacao-nativa",
+    "sortValue": 10
+  },
+  {
+    "path": "/empilhando-animacoes",
+    "stem": "11-empilhando-animacoes",
+    "title": "11-empilhando-animacoes",
+    "sortValue": 11
+  },
+  {
+    "path": "/cerebelo-da-aplicacao",
+    "stem": "12-cerebelo-da-aplicacao",
+    "title": "12-cerebelo-da-aplicacao",
+    "sortValue": 12
+  },
+  {
+    "path": "/compartilhando-com-o-mundo",
+    "stem": "13-compartilhando-com-o-mundo",
+    "title": "13-compartilhando-com-o-mundo",
+    "sortValue": 13
+  },
+  {
+    "path": "/desafio-final",
+    "stem": "14-desafio-final",
+    "title": "14-desafio-final",
+    "sortValue": 14
+  },
+  {
+    "path": "/about",
+    "stem": "about",
+    "title": "About Content Version 3",
+    "sortValue": 999
+  },
+  {
+    "path": "/",
+    "stem": "index",
+    "title": "Minicurso de Realidade Aumentada na Web (WebAR)",
+    "sortValue": 999
+  }
+]

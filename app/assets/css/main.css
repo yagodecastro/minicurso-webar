@@ -36,13 +36,20 @@ body {
   background: rgba(99, 102, 241, 0.6);
 }
 
-/* Ajustes no estilo das tags de código renderizadas pelo Nuxt Content */
+/* Ajustes no estilo das tags de código */
 .prose {
-  --tw-prose-pre-bg: transparent !important;
-  --tw-prose-pre-code: inherit !important;
+  --tw-prose-pre-bg: #f8fafc !important; /* Slate 50 */
+  --tw-prose-pre-code: #1e293b !important; /* Slate 800 */
+}
+
+.dark .prose {
+  --tw-prose-pre-bg: #0b0f19 !important; /* Slate 950/900 */
+  --tw-prose-pre-code: #f1f5f9 !important; /* Slate 100 */
 }
 
 .prose pre {
+  background-color: var(--tw-prose-pre-bg) !important;
+  color: var(--tw-prose-pre-code) !important;
   @apply border border-slate-200 dark:border-slate-800/80;
   border-radius: 0.75rem;
   padding: 1.25rem;
@@ -78,3 +85,123 @@ body {
   max-width: 100% !important;
   height: auto !important;
 }
+
+/* Highlight.js Syntax Highlighting (Integrado com Tailwind v4 Light/Dark Mode) */
+.hljs-comment,
+.hljs-quote {
+  color: #94a3b8; /* Slate 400 */
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #4f46e5; /* Indigo 600 */
+  font-weight: 600;
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-regexp {
+  color: #059669; /* Emerald 600 */
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol {
+  color: #d97706; /* Amber 600 */
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable {
+  color: #c2410c; /* Orange 700 */
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #4f46e5; /* Indigo 600 */
+  font-weight: 600;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #0891b2; /* Cyan 600 */
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #64748b; /* Slate 500 */
+}
+
+.hljs-deletion {
+  color: #e11d48; /* Rose 600 */
+}
+
+.hljs-addition {
+  color: #16a34a; /* Green 600 */
+}
+
+/* Dark Mode Overrides */
+.dark .hljs-comment,
+.dark .hljs-quote {
+  color: #64748b; /* Slate 500 */
+}
+
+.dark .hljs-keyword,
+.dark .hljs-selector-tag,
+.dark .hljs-type {
+  color: #818cf8; /* Indigo 400 */
+}
+
+.dark .hljs-string,
+.dark .hljs-bullet,
+.dark .hljs-regexp {
+  color: #34d399; /* Emerald 400 */
+}
+
+.dark .hljs-number,
+.dark .hljs-literal,
+.dark .hljs-symbol {
+  color: #fbbf24; /* Amber 400 */
+}
+
+.dark .hljs-attr,
+.dark .hljs-attribute,
+.dark .hljs-variable,
+.dark .hljs-template-variable {
+  color: #fb923c; /* Orange 400 */
+}
+
+.dark .hljs-tag,
+.dark .hljs-name,
+.dark .hljs-selector-id,
+.dark .hljs-selector-class {
+  color: #818cf8; /* Indigo 400 */
+}
+
+.dark .hljs-title,
+.dark .hljs-section,
+.dark .hljs-built_in,
+.dark .hljs-class .hljs-title {
+  color: #22d3ee; /* Cyan 400 */
+}
+
+.dark .hljs-meta,
+.dark .hljs-meta .hljs-keyword {
+  color: #94a3b8; /* Slate 400 */
+}
+
+.dark .hljs-deletion {
+  color: #f43f5e; /* Rose 400 */
+}
+
+.dark .hljs-addition {
+  color: #4ade80; /* Green 400 */
+}
+

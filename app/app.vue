@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, provide } from 'vue'
 import { Sun, Moon, Menu, X, Home, Glasses } from 'lucide-vue-next'
+import allPages from '~/chapters.json'
 
 const route = useRoute()
 const isMobileMenuOpen = ref(false)
@@ -28,24 +29,9 @@ useHead({
   ],
 })
 
-// Busca todos os capítulos para exibir na barra lateral
-const { data: allPages } = await useAsyncData('navigation', () => {
-  return queryCollection('content').select('path', 'title', 'stem').all()
-})
-
 const chapters = computed(() => {
-  if (!allPages.value) return []
-  return allPages.value
-    .filter((p) => p.path !== '/' && p.path !== '/about')
-    .map((p) => {
-      const match = p.stem.match(/^(\d+(?:_\d+)?)/)
-      const sortKey = match ? match[1].replace('_', '.') : '999'
-      return {
-        ...p,
-        sortValue: parseFloat(sortKey),
-      }
-    })
-    .sort((a, b) => a.sortValue - b.sortValue)
+  if (!allPages) return []
+  return allPages
 })
 
 // Fecha o menu mobile quando a rota muda

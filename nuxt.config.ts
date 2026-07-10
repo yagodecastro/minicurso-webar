@@ -2,17 +2,22 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/content'],
+  modules: ['@nuxt/eslint'],
+  components: {
+    dirs: [
+      {
+        path: '~/components/global',
+        global: true,
+        pathPrefix: false,
+      },
+      '~/components',
+    ],
+  },
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: [
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
-        'lucide-vue-next',
-        'mermaid',
-      ],
+      include: ['@vue/devtools-core', '@vue/devtools-kit', 'lucide-vue-next', 'mermaid'],
     },
     build: {
       chunkSizeWarningLimit: 2500,
@@ -24,36 +29,13 @@ export default defineNuxtConfig({
     client: false,
   },
   devtools: { enabled: true },
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          theme: {
-            default: 'github-light',
-            dark: 'dracula',
-          },
-          langs: [
-            'html',
-            'mermaid',
-            'mmd',
-            'css',
-            'javascript',
-            'typescript',
-            'bash',
-            'json',
-            'vue',
-            'markdown',
-          ],
-        },
-      },
-    },
-  },
+
   routeRules: {
     '/': { prerender: true },
     '/**': { prerender: true },
   },
   nitro: {
-    preset: 'vercel-static',
+    preset: 'static',
   },
   compatibilityDate: '2024-04-03',
 })

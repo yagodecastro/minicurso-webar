@@ -9,7 +9,6 @@ Este repositório contém a aplicação e o conteúdo do **Minicurso de Realidad
 O portal foi construído com as seguintes tecnologias:
 
 - **Framework Principal:** [Nuxt 3](https://nuxt.com/) (Vue 3, Vite, SSR).
-- **Motor de Conteúdo:** `@nuxt/content` v3 para autoria de aulas baseadas em arquivos Markdown enriquecidos.
 - **Estilização & Temas:** [Tailwind CSS v4](https://tailwindcss.com/) com suporte nativo a **Dark & Light Mode** integrado e transição de cores suave.
 - **Biblioteca de Ícones:** [Lucide Icons](https://lucide.dev/) (`lucide-vue-next`).
 - **Destaque de Sintaxe (Shiki):** Destaque de código adaptável que muda automaticamente as cores com base no tema selecionado (`github-light` no tema claro e `dracula` no escuro).
@@ -19,17 +18,17 @@ O portal foi construído com as seguintes tecnologias:
 
 ## 🔧 Estrutura do Conteúdo
 
-As aulas do curso residem na pasta `/content` no formato Markdown e são enumeradas dinamicamente:
+As aulas do curso residem na pasta `app/pages/` como páginas Vue estáticas, e a estrutura e ordenação dos capítulos são definidas no arquivo `app/chapters.json`:
 
 ```bash
-content/
-├── 00-introducao.md
-├── 01-preparando-as-ferramentas.md
-├── 02-introducao-rapida-ao-html.md
-├── 03-fundamentos-do-a-frame.md
-├── 04_1-webar-e-setup-bibliotecas.md
-├── 04_2-a-scene-e-camera-virtual.md
-└── ...
+app/
+├── chapters.json                     # Configuração, títulos e ordem dos capítulos
+└── pages/
+    ├── index.vue                     # Página inicial de apresentação
+    ├── introducao.vue                # Introdução do curso
+    ├── preparando-as-ferramentas.vue # Capítulo 1
+    ├── introducao-rapida-ao-html.vue # Capítulo 2
+    └── ...
 ```
 
 ---

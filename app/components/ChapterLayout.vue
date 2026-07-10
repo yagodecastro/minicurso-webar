@@ -1,42 +1,108 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, watch, nextTick } from 'vue'
 import { ArrowLeft, ArrowRight } from 'lucide-vue-next'
+import chaptersData from '~/chapters.json'
+import hljs from 'highlight.js'
 
 const route = useRoute()
 
-// Busca a página atual
-const { data: page } = await useAsyncData('page-' + route.path, () => {
-  return queryCollection('content').path(route.path).first()
-})
+const highlightCode = () => {
+  if (!import.meta.client) return
+  nextTick(() => {
+    // 1. Destaque de sintaxe
+    document.querySelectorAll('pre code').forEach((block) => {
+      if (!block.classList.contains('hljs')) {
+        hljs.highlightElement(block as HTMLElement)
+      }
+    })
 
-// Busca todos os capítulos para a paginação
-const { data: allPages } = await useAsyncData('all-pages', () => {
-  return queryCollection('content').select('path', 'title', 'stem').all()
-})
+    // 2. Inserção de botões de copiar
+    document.querySelectorAll('pre').forEach((pre) => {
+      // Evita duplicar o wrapper e o botão se o script rodar novamente
+      if (pre.parentElement?.classList.contains('code-block-wrapper')) {
+        return
+      }
 
-if (!page.value && !import.meta.dev) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+      // Cria a div wrapper
+      const wrapper = document.createElement('div')
+      wrapper.className = 'relative group code-block-wrapper'
+
+      // Insere o wrapper no DOM antes do pre e move o pre para dentro dele
+      pre.parentNode?.insertBefore(wrapper, pre)
+      wrapper.appendChild(pre)
+
+      // Cria o botão de copiar
+      const button = document.createElement('button')
+      button.className =
+        'absolute right-3.5 top-3.5 z-10 inline-flex items-center gap-1.5 rounded-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 px-2.5 py-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white opacity-0 group-hover:opacity-100 focus:opacity-100 active:scale-95 transition-all duration-200 cursor-pointer select-none shadow-xs'
+      button.setAttribute('aria-label', 'Copiar código')
+
+      // Ícones do botão de copiar (SVG)
+      const copyIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+        </svg>
+        <span>Copiar</span>
+      `
+
+      const copiedIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-emerald-500 font-semibold">Copiado!</span>
+      `
+
+      button.innerHTML = copyIcon
+
+      // Lógica de clique do botão
+      button.addEventListener('click', async () => {
+        const codeElement = pre.querySelector('code')
+        const codeText = codeElement ? codeElement.textContent || '' : pre.textContent || ''
+        
+        try {
+          await navigator.clipboard.writeText(codeText)
+          button.innerHTML = copiedIcon
+          button.classList.add('border-emerald-500/30', 'dark:border-emerald-500/30')
+          
+          setTimeout(() => {
+            button.innerHTML = copyIcon
+            button.classList.remove('border-emerald-500/30', 'dark:border-emerald-500/30')
+          }, 2000)
+        } catch (err) {
+          console.error('Falha ao copiar código: ', err)
+        }
+      })
+
+      // Adiciona o botão no wrapper (como irmão do pre, por cima dele)
+      wrapper.appendChild(button)
+    })
+  })
 }
+
+onMounted(() => {
+  highlightCode()
+})
+
+watch(
+  () => route.path,
+  () => {
+    highlightCode()
+  }
+)
+
 
 // Ordenação idêntica à da sidebar
 const chapters = computed(() => {
-  if (!allPages.value) return []
-  return allPages.value
-    .filter((p) => p.path !== '/' && p.path !== '/about')
-    .map((p) => {
-      const match = p.stem.match(/^(\d+(?:_\d+)?)/)
-      const sortKey = match ? match[1].replace('_', '.') : '999'
-      return {
-        ...p,
-        sortValue: parseFloat(sortKey),
-      }
-    })
-    .sort((a, b) => a.sortValue - b.sortValue)
+  return chaptersData.filter((p) => p.path !== '/' && p.path !== '/about')
 })
 
 // Achar índice atual
 const currentIndex = computed(() => {
   return chapters.value.findIndex((c) => c.path === route.path)
+})
+
+const progress = computed(() => {
+  return Math.round(((currentIndex.value + 1) / chapters.value.length) * 100)
 })
 
 const prevChapter = computed(() => {
@@ -80,7 +146,7 @@ function formatChapterTitle(stem: string) {
 </script>
 
 <template>
-  <div v-if="page" class="max-w-4xl mx-auto space-y-12">
+  <div class="max-w-4xl mx-auto space-y-12">
     <!-- Indicador de Capítulo (apenas para páginas de capítulos) -->
     <div
       v-if="currentIndex !== -1"
@@ -91,17 +157,30 @@ function formatChapterTitle(stem: string) {
       >
         Capítulo {{ String(currentIndex + 1).padStart(2, '0') }}
       </span>
-      <span class="text-slate-300 dark:text-slate-700">•</span>
-      <span class="text-slate-500 dark:text-slate-400"
-        >Progresso: {{ Math.round(((currentIndex + 1) / chapters.length) * 100) }}%</span
-      >
+      <div class="flex items-center gap-3 flex-1 max-w-xs">
+        <div
+          class="flex-1 h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden"
+          role="progressbar"
+          :aria-valuenow="progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div
+            class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-indigo-400 transition-all duration-500"
+            :style="{ width: progress + '%' }"
+          />
+        </div>
+        <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 tabular-nums">
+          {{ progress }}%
+        </span>
+      </div>
     </div>
 
     <!-- Conteúdo Principal -->
     <article
       class="prose prose-slate dark:prose-invert prose-indigo max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-500 dark:hover:prose-a:text-indigo-300 prose-a:transition-colors prose-img:rounded-2xl prose-img:shadow-2xl"
     >
-      <ContentRenderer :value="page" />
+      <slot />
     </article>
 
     <!-- Navegação Inferior -->
